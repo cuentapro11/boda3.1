@@ -1060,3 +1060,11 @@ body {
     /* Desactivar attachment fijo en móvil por compatibilidad/performance */
     .hero-left { background-attachment: scroll !important; }
 }
+
+/* Desktop-specific: asegurar fondo y efecto fijo */
+@media (min-width: 769px) {
+	.hero-left {
+		background-image: url('https://i.ibb.co/mV7TCqnG/Dise-o-sin-t-tulo.png');
+		background-attachment: fixed;
+	}
+}
