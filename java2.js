@@ -224,7 +224,7 @@ function initializeParallax() {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
     const updateParallax = () => {
-        if (window.innerWidth <= 768 || prefersReducedMotion.matches) {
+        if (prefersReducedMotion.matches) {
             heroLeft.style.backgroundPosition = 'center center';
             return;
         }
