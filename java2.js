@@ -229,9 +229,9 @@ function initializeParallax() {
             heroLayer.style.transform = 'translate3d(0,0,0)';
             return;
         }
-        const rect = heroLeft.getBoundingClientRect();
-        const offset = Math.round(rect.top * 0.35); // factor similar a background-attachment: fixed
-        heroLayer.style.transform = `translate3d(0, ${offset}px, 0)`;
+        const scrolled = window.scrollY || window.pageYOffset;
+        const speed = 0.4; // coincide con el ejemplo
+        heroLayer.style.transform = `translate3d(0, ${Math.round(scrolled * speed)}px, 0)`;
     };
 
     updateParallax();
