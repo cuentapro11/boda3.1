@@ -912,9 +912,10 @@ body {
         background-image: none; 
         background-color: hsl(var(--warm-white)); 
     }
-    /* El contenedor ocupa todo el ancho útil en móvil */
-    .site-container { padding: 0 1rem; max-width: none; }
-    .page-shell { box-shadow: none; }
+    /* El contenedor ocupa el 100% en móvil, sin borde/sombra */
+    .site-container { padding: 0; max-width: none; width: 100%; }
+    .page-shell { box-shadow: none; max-width: none; width: 100%; border: none; border-radius: 0; }
+    .hero-container { max-width: none; }
     .hero-split { border-radius: 0; }
 
     .section-title {
