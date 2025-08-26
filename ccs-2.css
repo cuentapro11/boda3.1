@@ -310,13 +310,19 @@ body {
 .hero-left {
     position: relative;
     display: block;
+    min-height: 60vh;
+    overflow: hidden;
+}
+
+.hero-left-bg {
+    position: absolute;
+    inset: 0;
     background-image: url('https://i.ibb.co/mV7TCqnG/Dise-o-sin-t-tulo.png');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-    background-attachment: scroll;
-    min-height: 60vh;
-    will-change: background-position;
+    transform: translateZ(0);
+    will-change: transform;
 }
 
 /* Image container for left hero image */
