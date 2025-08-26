@@ -1,8 +1,0 @@
-/* Overrides cache-bust stylesheet */
-.hero-left-bg {
-	background-image: url('https://i.ibb.co/TxT7cXdc/Dise-o-sin-t-tulo-1.png?v=force-20250826-03') !important;
-}
-
-@media (max-width: 768px) {
-	.hero-left { height: 60vh !important; }
-}
