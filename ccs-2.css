@@ -1034,6 +1034,7 @@ body {
 @media (max-width: 768px) {
 	.hero-split { height: auto; }
 	.hero { height: 55vh; }
+	.hero-left { height: 55vh; }
 	.hero-right { height: 80vh; }
 	.hero-right img { width: 100%; height: 100%; object-fit: cover; display: block; }
     /* Desactivar attachment fijo en móvil por compatibilidad/performance */
