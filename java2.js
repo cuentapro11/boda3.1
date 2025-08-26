@@ -224,19 +224,32 @@ function initializeParallax() {
 
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-    const updateParallax = () => {
+    let lastScrollY = window.scrollY || window.pageYOffset;
+    let ticking = false;
+
+    const computeSpeed = () => (window.innerWidth <= 768 ? 0.65 : 0.5);
+
+    const render = () => {
         if (prefersReducedMotion.matches) {
             heroLayer.style.transform = 'translate3d(0,0,0)';
-            return;
+        } else {
+            const speed = computeSpeed();
+            heroLayer.style.transform = `translate3d(0, ${Math.round(lastScrollY * speed)}px, 0)`;
         }
-        const scrolled = window.scrollY || window.pageYOffset;
-        const speed = 0.4; // coincide con el ejemplo
-        heroLayer.style.transform = `translate3d(0, ${Math.round(scrolled * speed)}px, 0)`;
+        ticking = false;
     };
 
-    updateParallax();
-    window.addEventListener('scroll', updateParallax, { passive: true });
-    window.addEventListener('resize', updateParallax);
+    const onScroll = () => {
+        lastScrollY = window.scrollY || window.pageYOffset;
+        if (!ticking) {
+            window.requestAnimationFrame(render);
+            ticking = true;
+        }
+    };
+
+    render();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', render);
 }
 
 // Funciones de los botones
