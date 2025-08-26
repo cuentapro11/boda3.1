@@ -216,22 +216,21 @@ function updateSlideCounter() {
     currentSlideElement.textContent = currentSlide + 1;
 }
 
-// Parallax en la portada izquierda
+// Parallax en la portada izquierda (background-position based)
 function initializeParallax() {
-    const hero = document.querySelector('.hero-left .hero');
-    const heroImg = hero ? hero.querySelector('img') : null;
-    if (!hero || !heroImg) return;
+    const heroLeft = document.querySelector('.hero-left');
+    if (!heroLeft) return;
 
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
     const updateParallax = () => {
         if (window.innerWidth <= 768 || prefersReducedMotion.matches) {
-            heroImg.style.transform = '';
+            heroLeft.style.backgroundPosition = 'center center';
             return;
         }
-        const rect = hero.getBoundingClientRect();
-        const offset = rect.top * 0.2; // factor de suavizado
-        heroImg.style.transform = `translateY(${offset}px)`;
+        const rect = heroLeft.getBoundingClientRect();
+        const offset = Math.round(rect.top * 0.25); // factor de suavizado
+        heroLeft.style.backgroundPosition = `center calc(50% + ${offset}px)`;
     };
 
     updateParallax();
